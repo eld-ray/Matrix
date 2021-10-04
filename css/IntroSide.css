@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: url(/Images/NumberGif.gif);
+}
+
+h1 {
+  color: whitesmoke;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  letter-spacing: 0.5px;
+}
