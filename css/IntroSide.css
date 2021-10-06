@@ -15,6 +15,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  align-items: center;
   letter-spacing: 0.5px;
 }
 #container {
@@ -33,19 +34,44 @@ img {
   z-index: -1;
   object-fit: cover;
 }
-.red-pill {
-  background-color: transparent;
+
+.redPill {
   width: 100px;
   height: 100px;
-  z-index: 1;
   margin: 20px;
   padding: 20px;
+  left: 500px;
+  opacity: 0;
+
+  transition-property: all;
+  transition-duration: 2s;
+  transition-timing-function: ease-in-out;
 }
-.blue-pill {
-  background-color: transparent;
+
+.redPill:hover {
+  transform: rotate(720deg);
+  opacity: 100;
+  height: 200px;
+  width: 180px;
+}
+
+.bluePill {
   width: 100px;
   height: 100px;
-  z-index: 1;
   margin: 20px;
   padding: 20px;
+  left: 500px;
+  opacity: 0;
+
+  transition-property: all;
+  transition-duration: 2s;
+  transition-timing-function: ease-in-out;
+}
+
+.bluePill:hover {
+  transform: rotate(720deg);
+
+  opacity: 100;
+  height: 200px;
+  width: 180px;
 }
