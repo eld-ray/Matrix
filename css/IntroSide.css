@@ -51,7 +51,7 @@ img {
 .redPill:hover {
   transform: rotate(720deg);
   opacity: 100;
-  height: 200px;
+  height: 195px;
   width: 180px;
 }
 
