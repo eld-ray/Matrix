@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="/denne-mappen-trengs-ikke-roeres/er-du-synsk.css"
+    />
+    <title>Er du synsk?</title>
+  </head>
+  <body>
+    <header>
+      <h1>Er du synsk?</h1>
+    </header>
+    <div id="game-on">
+      <!-- Det er lov å endre HTML og id'er -->
+      <section>
+        <div id="box-one">Denne?</div>
+        <div id="box-two">Eller denne?</div>
+      </section>
+
+      <div id="number-of-lives"></div>
+
+      <div id="amount-of-corrects">
+        <p>Antall riktige: 0</p>
+      </div>
+
+      <div id="amount-of-wrongs">
+        <p>Antall feil: 0</p>
+      </div>
+
+      <div id="output-div">
+        <p>Klikk på en av boksene for å begynne spillet</p>
+      </div>
+    </div>
+    <div id="loser">
+      <h2>Du tapte!</h2>
+      <img src="/images/gameOver.jpeg" alt="image of game over" />
+    </div>
+    <div id="winner">
+      <h2>Gratulerer! Du vant spillet. :D</h2>
+      <img src="/images/fireworks.jpg" alt="image of fireworks" />
+    </div>
+
+    <script>
+      //HTML-objekter
+      var boxOne = document.getElementById('box-one');
+      var boxTwo = document.getElementById('box-two');
+      var numberOfLives = document.getElementById('number-of-lives');
+      var amountOfCorrects = document.getElementById('amount-of-corrects');
+      var amountOfWrongs = document.getElementById('amount-of-wrongs');
+      var outputDiv = document.getElementById('output-div');
+      var gameOn = document.getElementById('game-on');
+      var loser = document.getElementById('loser');
+      var winner = document.getElementById('winner');
+      // Variabler
+
+      var cRight = 0;
+      var cWrong = 0;
+      var playerLives = 5;
+      var image = '<img src="images/person3.jpg"/>';
+
+      loser.style.display = 'none';
+      winner.style.display = 'none';
+
+      // Funksjoner
+      for (i = 0; i < playerLives; i++) {
+        numberOfLives.innerHTML += image;
+      }
+
+      function box1() {
+        var randomNumber = Math.floor(Math.random() * 2 + 1);
+        if (randomNumber === 2) {
+          cRight++;
+          amountOfCorrects.innerHTML = `<p> Antall riktige: ${cRight}</p>`;
+          outputDiv.innerHTML = '<p> Riktig svar </p>';
+
+          if (cRight === 3 || cRight === 5 || cRight === 7) {
+            playerLives++;
+            numberOfLives.innerHTML += image;
+          }
+        } else if (randomNumber === 1) {
+          cWrong++;
+          amountOfWrongs.innerHTML = `<p> Antall feil: ${cWrong}</p>`;
+          outputDiv.innerHTML = '<p> Feil svar </p>';
+          playerLives--;
+          numberOfLives.innerHTML = '';
+          for (i = 0; i < playerLives; i++) {
+            numberOfLives.innerHTML += image;
+          }
+        }
+        gameChanger();
+      }
+      function box2() {
+        var randomNumber = Math.floor(Math.random() * 2 + 1);
+        if (randomNumber === 1) {
+          cRight++;
+          amountOfCorrects.innerHTML = `<p> Antall riktige: ${cRight}</p>`;
+          outputDiv.innerHTML = '<p> Riktig svar </p>';
+          if (cRight === 3 || cRight === 5 || cRight === 7) {
+            playerLives++;
+            numberOfLives.innerHTML += image;
+          }
+        } else if (randomNumber === 2) {
+          cWrong++;
+          amountOfWrongs.innerHTML = `<p> Antall feil: ${cWrong}</p>`;
+          outputDiv.innerHTML = '<p> Feil svar </p>';
+          playerLives--;
+          numberOfLives.innerHTML = '';
+          for (i = 0; i < playerLives; i++) {
+            numberOfLives.innerHTML += image;
+          }
+        }
+        gameChanger();
+      }
+      function gameChanger() {
+        if (cRight === 10) {
+          winner.style.display = 'block';
+          gameOn.style.display = 'none';
+        } else if (playerLives === 0) {
+          loser.style.display = 'block';
+          gameOn.style.display = 'none';
+        }
+      }
+
+      boxOne.addEventListener('click', box1);
+      boxTwo.addEventListener('click', box2);
+      // Events
+    </script>
+  </body>
+</html>

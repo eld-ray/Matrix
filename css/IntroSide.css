@@ -2,13 +2,22 @@
   margin: 0;
   padding: 0;
 }
+
 body {
   width: 100%;
   height: 100vh;
 }
 
+<<<<<<< HEAD
 .titleWrapper {
   position: absolute;
+=======
+
+
+
+h1 {
+  color: whitesmoke;
+>>>>>>> 7b0516cc13ecf894d2b276ac16012479ebb90904
   width: 100%;
   height: 50vh;
   text-align: center;
